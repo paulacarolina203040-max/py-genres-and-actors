@@ -8,7 +8,7 @@ def main() -> QuerySet:
     genres = [
         ("Western",),
         ("Action",),
-        ("Drama",),
+        ("Dramma",),
     ]
     for genre_tuple in genres:
         Genre.objects.create(name=genre_tuple[0])
@@ -26,6 +26,8 @@ def main() -> QuerySet:
             first_name=first_name,
             last_name=last_name
         )
+
+    Genre.objects.filter(name="Dramma").update(name="Drama")
 
     Actor.objects.filter(
         first_name="George",
